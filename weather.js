@@ -5,8 +5,6 @@ const body = document.querySelector("body");
 const weatherClock = document.querySelector(".clock");
 const weatherGreetings = document.querySelector(".js-greetings");
 const todolist = document.querySelector(".js-toDoList");
-const span = todolist.querySelector("span");
-
 
 function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
@@ -30,13 +28,9 @@ function getWeather(lat, lng) {
 }
 
 function changeBlack() {
-  // console.log(li)
-  // for (let i = 0; i < li.length; i++) {
-  //   weatherClock.style.color = "black";
-  //   weatherGreetings.style.color = "black";
-  //   weather.style.color = "black";
-  //   span.style.color = "black";
-  // }
+  weatherClock.classList.add("black");
+  weatherGreetings.classList.add("black");
+  weather.classList.add("black");
 }
 
 function changeBg(imgweather) {
