@@ -20,6 +20,8 @@ body {
 }
 
 .writeToDo {
+  all: unset;
+  border: none;
   width: 500px;
   height: 35px;
   margin: 10px 10px;
@@ -29,10 +31,10 @@ body {
 
 .contatiner {
   position: absolute;
-  top: 51%;
+  top: 39%;
   height: 240px;
   margin-top: -143px;
-  left: 37%;
+  left: 31%;
   text-align: center;
 }
 

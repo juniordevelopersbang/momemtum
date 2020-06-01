@@ -7,6 +7,7 @@ const weatherGreetings = document.querySelector(".js-greetings");
 const todolist = document.querySelector(".js-toDoList");
 const span = todolist.querySelector("span");
 
+
 function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
@@ -23,16 +24,19 @@ function getWeather(lat, lng) {
       const place = json.name;
       const imgweather = json.weather[0].main;
       console.log(imgweather);
-      weather.innerText = `${temperature} @ ${place}`;
+      weather.innerText = `${temperature} @ ${place} / ${imgweather}`;
       changeBg(imgweather);
     });
 }
 
-function changeBlack(){
-  weatherClock.style.color = "black";
-  weatherGreetings.style.color = "black";
-  weather.style.color = "black";
-  span.style.color = "black";
+function changeBlack() {
+  // console.log(li)
+  // for (let i = 0; i < li.length; i++) {
+  //   weatherClock.style.color = "black";
+  //   weatherGreetings.style.color = "black";
+  //   weather.style.color = "black";
+  //   span.style.color = "black";
+  // }
 }
 
 function changeBg(imgweather) {
@@ -42,8 +46,11 @@ function changeBg(imgweather) {
     changeBlack();
   } else if (imgweather === "= Rain") {
     image.src = `img/Rain.jpg`;
-  }else if (imgweather === "Clouds") {
+  } else if (imgweather === "Clouds") {
     image.src = `img/Clouds.jpg`;
+    changeBlack();
+  } else if (imgweather === "Snow") {
+    image.src = `img/Snow.jpg`;
     changeBlack();
   }
   image.classList.add("bgImage");
