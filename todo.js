@@ -2,7 +2,6 @@ const toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector(".js-toDoList");
 
-
 const TODOS_LS = "toDos";
 
 let toDos = [];
@@ -18,10 +17,9 @@ function deleteToDo(event) {
   saveToDOs();
 }
 
-function todoLine(){
+function todoLine() {
   const checkBox = document.createElement("input");
   console.log(checkBox);
-
 
   checkBox.classList.add("line");
 }
@@ -34,14 +32,20 @@ function paintToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   const checkBox = document.createElement("input");
+
   checkBox.type = "checkbox";
   checkBox.classList.add("checkbox");
+
   delBtn.innerText = "✖︎";
   checkBox.addEventListener("click", todoLine);
   delBtn.addEventListener("click", deleteToDo);
+
   const span = document.createElement("span");
   const newId = toDos.length + 1;
+
   span.innerText = text;
+  span.classList.add("js-toDolist");
+
   li.appendChild(checkBox);
   li.appendChild(span);
   li.id = newId;
@@ -58,7 +62,11 @@ function paintToDo(text) {
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
-  paintToDo(currentValue);
+  if (currentValue === "") {
+    alert("내용을 입력하세요!");
+  } else {
+    paintToDo(currentValue);
+  }
   toDoInput.value = "";
 }
 

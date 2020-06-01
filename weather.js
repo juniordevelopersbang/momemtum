@@ -5,6 +5,7 @@ const body = document.querySelector("body");
 const weatherClock = document.querySelector(".clock");
 const weatherGreetings = document.querySelector(".js-greetings");
 const todolist = document.querySelector(".js-toDoList");
+const li = todolist.querySelectorAll("li");
 
 function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
@@ -21,16 +22,42 @@ function getWeather(lat, lng) {
       const temperature = json.main.temp;
       const place = json.name;
       const imgweather = json.weather[0].main;
-      console.log(imgweather);
+
       weather.innerText = `${temperature} @ ${place} / ${imgweather}`;
       changeBg(imgweather);
     });
 }
 
 function changeBlack() {
+  weatherClock.classList.remove("white");
   weatherClock.classList.add("black");
+
+  weatherGreetings.classList.remove("white");
   weatherGreetings.classList.add("black");
+
+  weather.classList.remove("white");
   weather.classList.add("black");
+
+  li.forEach((item) => {
+    item.classList.remove("white");
+    item.classList.add("black");
+  });
+}
+
+function changeWhite() {
+  weatherClock.classList.remove("black");
+  weatherClock.classList.add("white");
+
+  weatherGreetings.classList.remove("black");
+  weatherGreetings.classList.add("white");
+
+  weather.classList.add("white");
+  // weather.classList.remvoe("black");
+
+  li.forEach((item) => {
+    item.classList.remove("black");
+    item.classList.add("white");
+  });
 }
 
 function changeBg(imgweather) {
@@ -38,8 +65,9 @@ function changeBg(imgweather) {
   if (imgweather === "Clear") {
     image.src = `img/clear.jpg`;
     changeBlack();
-  } else if (imgweather === "= Rain") {
-    image.src = `img/Rain.jpg`;
+  } else if (imgweather === "Rain") {
+    image.src = `img/rain.jpg`;
+    changeWhite();
   } else if (imgweather === "Clouds") {
     image.src = `img/Clouds.jpg`;
     changeBlack();

@@ -7,16 +7,14 @@ body {
   display: none;
   padding: 10px 10px;
   font-size: 60px;
-  color: white;
 }
 
 .showing {
   display: block;
 }
 
-.clock {
-  font-size: 135px;
-  color: white;
+.clock, .day {
+  font-size: 75px;
 }
 
 .writeToDo {
@@ -38,17 +36,19 @@ body {
   text-align: center;
 }
 
+.js-toDolist {
+  font-size: 50px;
+}
 
-
-li > span {
-  font-size: 75px;
+.white {
   color: white;
 }
 
-@keyframes fadeIn{
-  from{
+@keyframes fadeIn {
+  from {
     opacity: 0;
-  }to {
+  }
+  to {
     opacity: 1;
   }
 }
@@ -63,16 +63,20 @@ li > span {
   animation: fadeIn 0.1s linear;
 }
 
-.js-weather{
+.js-weather {
   margin-top: 10px;
-  color: white;
+
   font-size: 60px;
 }
 
-.line{
+.line {
   color: gray;
 }
 
-.black{
+.black {
   color: black;
+}
+
+.white {
+  color: white;
 }
